@@ -1,0 +1,17 @@
+#error-message {
+  color: red;
+  font-weight: bold;
+}
+
+p,
+input,
+label,
+button {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#loading-text {
+  font-size: 1.3rem;
+  color: blue;
+}
