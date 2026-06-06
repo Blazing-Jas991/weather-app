@@ -38,7 +38,6 @@ function processWeatherData(data) {
     windspeed: data.currentConditions.windspeed,
   };
   const timezone = data.timezone;
-  const alerts = data.alerts;
   const days = data.days;
   return { address, description, alerts, currentConditions, timezone, days };
 }
@@ -69,7 +68,6 @@ function displayWeatherData(display) {
   createText("Wind Direction", display.currentConditions.winddir);
   createText("Wind Speed", `${display.currentConditions.windspeed} km/h`);
   createText("Timezone", display.timezone);
-  createText("Alerts", display.alerts);
 }
 
 searchButton.addEventListener("click", async (event) => {
