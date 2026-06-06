@@ -55,19 +55,19 @@ function displayWeatherData(display) {
   }
   createText("Address", display.address);
   createText("Description", display.description);
-  createText("Temperature", display.currentConditions.temp);
+  createText("Temperature", `${display.currentConditions.temp} °C`);
   createText("Condition", display.currentConditions.condition);
   createText("Date Time", display.currentConditions.datetime);
-  createText("Feels Like", display.currentConditions.feelslike);
-  createText("Humidity", display.currentConditions.humidity);
+  createText("Feels Like", `${display.currentConditions.feelslike} °C`);
+  createText("Humidity", `${display.currentConditions.humidity} %`);
   createText("Icon", display.currentConditions.icon);
-  createText("Dew", display.currentConditions.dew);
+  createText("Dew Point", `${display.currentConditions.dew} °C`);
   createText("Sunrise", display.currentConditions.sunrise);
   createText("Sunset", display.currentConditions.sunset);
   createText("UV Index", display.currentConditions.uvindex);
-  createText("Visibility", display.currentConditions.visibility);
+  createText("Visibility", `${display.currentConditions.visibility} km`);
   createText("Wind Direction", display.currentConditions.winddir);
-  createText("Wind Speed", display.currentConditions.windspeed);
+  createText("Wind Speed", `${display.currentConditions.windspeed} km/h`);
   createText("Timezone", display.timezone);
   createText("Alerts", display.alerts);
 }
@@ -77,7 +77,9 @@ searchButton.addEventListener("click", async (event) => {
   loadingMessage.style.display = "flex";
   weatherInfo.replaceChildren();
   let searchTerm = searchBar.value;
-  const data = await getWeatherData(searchTerm);
+  let newSearchTerm =
+    searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
+  const data = await getWeatherData(newSearchTerm);
   loadingMessage.style.display = "none";
   if (!data) return;
   const display = processWeatherData(data);
