@@ -39,7 +39,7 @@ function processWeatherData(data) {
   };
   const timezone = data.timezone;
   const days = data.days;
-  return { address, description, alerts, currentConditions, timezone, days };
+  return { address, description, currentConditions, timezone, days };
 }
 
 function displayWeatherData(display) {
